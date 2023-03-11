@@ -1,0 +1,92 @@
+﻿<Window x:Class="ExSystemProgram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExSystemProgram"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        KeyDown="Window_KeyDown" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="White">
+
+        <Button x:Name="buttonProcess" Content="Process" BorderBrush="Black" Height="52" Margin="23,24,648,0" VerticalAlignment="Top" Background="#FFD69393" Click="buttonProcess_Click">
+
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="ButtonBase.Click">
+                    <BeginStoryboard>
+                        <Storyboard Timeline.DesiredFrameRate="60">
+                            <DoubleAnimation Storyboard.TargetName="border3" Storyboard.TargetProperty="(Canvas.Left)"
+                                 From="-620" To="-343" AutoReverse="False" Duration="0:0:1.5" RepeatBehavior="1x"
+                                 DecelerationRatio="1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+
+        <Button x:Name="buttonSettings" Content="Settings" BorderBrush="Black" Height="52" Margin="190,24,481,0" VerticalAlignment="Top" Background="#FFD69393" Click="buttonSettings_Click">
+
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="ButtonBase.Click">
+                    <BeginStoryboard>
+                        <Storyboard Timeline.DesiredFrameRate="60">
+                            <DoubleAnimation Storyboard.TargetName="borderDown" Storyboard.TargetProperty="(Canvas.Top)"
+                                 From="-500" To="-150" AutoReverse="False" Duration="0:0:1.5" RepeatBehavior="1x"
+                                 DecelerationRatio="1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Canvas Height="100" Width="100" Background="#00FFB6C1">
+            <StackPanel x:Name="border3" Width="262" Height="419" Canvas.Left="-635" Canvas.Top="-155" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFD05555">
+                <Button Content="ESC" x:Name="buttonX" Height="30" Width="264" BorderBrush="#00673AB7" Background="#FF4C1CA2" Foreground="#FFFB7300">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="ButtonBase.Click">
+                            <BeginStoryboard>
+                                <Storyboard Timeline.DesiredFrameRate="60">
+                                    <DoubleAnimation Storyboard.TargetName="border3" Storyboard.TargetProperty="(Canvas.Left)"
+                                 From="-343" To="-620" AutoReverse="False" Duration="0:0:2" RepeatBehavior="1x"
+                                 DecelerationRatio="1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <TextBox x:Name="ProcessInfText" Height="201" Width="250" Margin="0,10,0,0" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
+            </StackPanel>
+
+            <StackPanel x:Name="borderDown" Width="784" Height="284" Canvas.Left="-342" Canvas.Top="-486" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FFD05555" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <CheckBox x:Name="settingsStatistics" Content="Statistics" Width="87" HorizontalAlignment="Left"/>
+                <CheckBox Content="ButtonPress/ActivProcess" Width="164" HorizontalAlignment="Left"/>
+                <Button Content="ESC" x:Name="buttonX2" Height="27" Width="776" Margin="0,0,0,0" BorderBrush="#00673AB7" Background="#FF4C1CA2" Foreground="#FFFF5D00">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="ButtonBase.Click">
+                            <BeginStoryboard>
+                                <Storyboard Timeline.DesiredFrameRate="60">
+                                    <DoubleAnimation Storyboard.TargetName="borderDown" Storyboard.TargetProperty="(Canvas.Top)"
+                                 From="-150" To="-500" AutoReverse="False" Duration="0:0:2" RepeatBehavior="1x"
+                                 DecelerationRatio="1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+            </StackPanel>
+
+        </Canvas>
+
+
+
+    </Grid>
+
+</Window>
